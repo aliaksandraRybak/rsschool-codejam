@@ -3,10 +3,10 @@ module.exports = function make(...args) {
   params.push(...args);
 
   return function check(...innerArgs) {
-    if (typeof args[0] !== 'function') {
+    if (typeof innerArgs[0] !== 'function') {
       params.push(...innerArgs);
     } else {
-      const res = params.reduce(args[0]);
+      const res = params.reduce(innerArgs[0]);
       return res;
     }
 
